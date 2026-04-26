@@ -61,6 +61,12 @@ Upon running the script, you will be presented with a menu:
 * `passwords.db`: The SQLite database file (automatically created).
 * `secret.key`: The generated encryption key (automatically created - **keep this safe!**).
 
+## Security Design Decisions
+
+* Why Fernet/AES-128? Chosen for its balance of strong symmetric encryption and ease of implementation in Python, ensuring that the password database remains         useless to an attacker without the corresponding secret.key.
+
+* Why getpass? Implemented to prevent "shoulder surfing" and ensure credentials are never echoed to the terminal history/logs.
+
 ## 🔮 Future Improvements
 
 * [ ] Implement a "Master Password" login requirement at startup.
